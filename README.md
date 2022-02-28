@@ -15,13 +15,14 @@ Este é um simples projeto de portfólio, consiste no CRUD de Users. Utilizando 
 
 Execute os comandos padrões para o funcionamento do projeto.
 
-1. Execute o comando **composer install** no terminal para instalar as dependências do PHP.
+1. Execute o comando `composer install` no terminal para instalar as dependências do PHP.
 2. Edite o arquivo **.env** para configurar as informações de banco e etc.
 3. O nome do banco de dados utilizado no projeto é: `users`
 4. Execute os demais comandos:
-    **php artisan cache:clear**
-    **php artisan config:clear**
+    `php artisan cache:clear`
+    `php artisan config:clear`
 5. Agora execute o comando para gerar as tabelas do seu banco de dados:
-    **php artisan migrate**
+    `php artisan migrate`
 6. Por fim inicie o projeto:
-    **php artisan serve**
+    `php artisan serve`
+    
