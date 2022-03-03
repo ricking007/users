@@ -21,7 +21,7 @@ Execute os comandos padrões para o funcionamento do projeto.
 4. Execute os demais comandos:
     `php artisan cache:clear`
     `php artisan config:clear`
-5. Agora execute o comando para gerar as tabelas do seu banco de dados:
+5. Crie uma variável no `.env` HASH_SECRET="" com o hash das senhas, execute o comando para gerar as tabelas do seu banco de dados:
     `php artisan migrate --seed`
 6. Por fim inicie o projeto:
     `php artisan serve`
