@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,19 +12,32 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        try {
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+            $q = str_replace(" ", "%", $request->get('query'));
+
+            $users = User::where(function ($query) use ($q) {
+                if ($query) {
+                    $query->where('username', 'like', '%' . $q . '%')
+                        ->orWhere('name', 'like', '%' . $q . '%')
+                        ->orWhere('email', 'like', '%' . $q . '%');
+                }
+            })->orderBy('name', 'asc')
+                ->get();
+            return response()->json([
+                'success' => true,
+                'message' => "List of users",
+                'data' => $users
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'message' => "Error",
+                'error' => $th->getMessage()
+            ]);
+        }
     }
 
     /**
@@ -34,7 +48,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'message' => "Nothing has been implemented yet",
+            'error' => null
+        ]);
     }
 
     /**
@@ -45,7 +63,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'message' => "Nothing has been implemented yet",
+            'error' => null
+        ]);
     }
 
     /**
@@ -56,7 +78,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'message' => "Nothing has been implemented yet",
+            'error' => null
+        ]);
     }
 
     /**
@@ -68,7 +94,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'message' => "Nothing has been implemented yet",
+            'error' => null
+        ]);
     }
 
     /**
@@ -79,6 +109,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json([
+            'success' => false,
+            'message' => "Nothing has been implemented yet",
+            'error' => null
+        ]);
     }
 }

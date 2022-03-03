@@ -22,7 +22,7 @@ Execute os comandos padrões para o funcionamento do projeto.
     `php artisan cache:clear`
     `php artisan config:clear`
 5. Agora execute o comando para gerar as tabelas do seu banco de dados:
-    `php artisan migrate && php artisan migrate --seed`
+    `php artisan migrate --seed`
 6. Por fim inicie o projeto:
     `php artisan serve`
     
